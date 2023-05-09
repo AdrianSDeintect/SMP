@@ -105,7 +105,7 @@ public class TblproductosDidiEndpoint : ServiceEndpoint
         var response = new ExcelImportResponse();
         response.ErrorList = new List<string>();
 
-        var worksheet = ep.Workbook.Worksheets[1];
+        var worksheet = ep.Workbook.Worksheets[0];
         var tblHeaders = getCurrentTableHeaders();//Headers of current Table. 
 
 
@@ -121,17 +121,22 @@ public class TblproductosDidiEndpoint : ServiceEndpoint
             //}
         }
         List<int> columnNameCol = new List<int>();
-        for (var i = 1; 1 > tblHeaders.Count; i++)
-        {
-            //columnNameCol[i] = wsHeaders.First(h => h.Equals(tblHeaders[i]).IntArticuloid[0].ToString();
-            //h.Value.Equals(tblHeaders[i])).Address[0].ToString();
-        }
+        //for (var i = 0; i <= tblHeaders.Count; i++)
+        //{
+        //    //columnNameCol[i] = wsHeaders.First(h => h.Equals(tblHeaders[i])[0].ToString();
+        //    //    //h.Value.Equals(tblHeaders[i])).Address[0].ToString();
+        //    //    //columnNameCol[i] = wsHeaders.First(h => h.Value.Equals(tblHeaders[i])).Address[0].ToString();
+        //    //    //columnNameCol[i] = wsHeaders.First(l => l.Equals(tblHeaders[i].Name[0].ToString()));
+        //    //    columnNameCol[i] = wsHeaders.First();
+        //    columnNameCol[i]= i;    
+        //}
+        columnNameCol.Add(1);
 
         for (var row = 2; row <= worksheet.Dimension.End.Row; row++)
         {
             try
             {
-                var lineIDCol = columnNameCol[1];
+                var lineIDCol = columnNameCol[0];
                 var pruductId = Convert.ToInt32(worksheet.Cells[row, lineIDCol].Value ?? "");
                 var pName = Convert.ToString(pruductId);
 
