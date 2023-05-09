@@ -1,16 +1,8 @@
-﻿import { StringEditor, PrefixedContext } from "@serenity-is/corelib";
+﻿import { ImageUploadEditor, PrefixedContext } from "@serenity-is/corelib";
 import { initFormType } from "@serenity-is/corelib/q";
 
 export interface TblproductosDidiForm {
-    StrDivision: StringEditor;
-    StrCategoria: StringEditor;
-    StrSubCat: StringEditor;
-    StrGrupo: StringEditor;
-    StrUpc: StringEditor;
-    StrMarca: StringEditor;
-    StrNombre: StringEditor;
-    StrFormato: StringEditor;
-    Strimagen: StringEditor;
+    FileName: ImageUploadEditor;
 }
 
 export class TblproductosDidiForm extends PrefixedContext {
@@ -23,18 +15,10 @@ export class TblproductosDidiForm extends PrefixedContext {
         if (!TblproductosDidiForm.init)  {
             TblproductosDidiForm.init = true;
 
-            var w0 = StringEditor;
+            var w0 = ImageUploadEditor;
 
             initFormType(TblproductosDidiForm, [
-                'StrDivision', w0,
-                'StrCategoria', w0,
-                'StrSubCat', w0,
-                'StrGrupo', w0,
-                'StrUpc', w0,
-                'StrMarca', w0,
-                'StrNombre', w0,
-                'StrFormato', w0,
-                'Strimagen', w0
+                'FileName', w0
             ]);
         }
     }

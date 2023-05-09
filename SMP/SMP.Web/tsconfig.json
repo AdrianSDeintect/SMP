@@ -1,4 +1,4 @@
-﻿{
+{
   "compileOnSave": true,
   "compilerOptions": {
     "allowJs": false,
@@ -26,6 +26,7 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "target": "ES6",
+    "outFile": "Scripts/site/SMP.Web.js",
     "typeRoots": [
       "./node_modules/@types"
     ],
@@ -37,7 +38,8 @@
     ]
   },
   "include": [
-    "./Modules/**/*"
+    "./Modules/**/*",
+    "./Scripts/typings/"
   ],
   "typeAcquisition": {
     "enable": false

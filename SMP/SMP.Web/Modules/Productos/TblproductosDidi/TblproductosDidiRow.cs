@@ -88,7 +88,7 @@ public sealed class TblproductosDidiRow : Row<TblproductosDidiRow.RowFields>, II
         get => fields.NombreArticulo[this];
         set => fields.NombreArticulo[this] = value;
     }
-
+    public bool TrackWithChecks { get; internal set; }
 
     public class RowFields : RowFieldsBase
     {
