@@ -8,10 +8,16 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\**\*.sql" />
+    <Compile Remove="Modules\NewFolder\**" />
+    <Content Remove="Modules\NewFolder\**" />
+    <EmbeddedResource Remove="Modules\NewFolder\**" />
+    <None Remove="Modules\NewFolder\**" />
+    <TypeScriptCompile Remove="Modules\NewFolder\**" />
     <None Remove="Scripts\site\SiGeC.Web.d.ts.orig" />
     <None Remove="Scripts\site\SiGeC.Web.js" />
     <None Remove="Scripts\site\SiGeC.Web.js.map" />
     <None Remove="Scripts\site\SiGeC.Web.js.orig" />
+    <TypeScriptCompile Remove="Modules\Productos\TblproductosDidi\TblproductosDidiDialogImportExcel.ts" />
     <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
     <Compile Include="obj\Debug\net6.0\SMP.Web.AssemblyInfo.cs" />
     <Compile Include="obj\Debug\net6.0\SMP.Web.MvcApplicationPartsAssemblyInfo.cs" />

@@ -1,8 +1,8 @@
-﻿import { ImageUploadEditor, PrefixedContext } from "@serenity-is/corelib";
+﻿import { LookupEditor, PrefixedContext } from "@serenity-is/corelib";
 import { initFormType } from "@serenity-is/corelib/q";
 
 export interface TblproductosDidiForm {
-    FileName: ImageUploadEditor;
+    IntArticuloid: LookupEditor;
 }
 
 export class TblproductosDidiForm extends PrefixedContext {
@@ -15,10 +15,10 @@ export class TblproductosDidiForm extends PrefixedContext {
         if (!TblproductosDidiForm.init)  {
             TblproductosDidiForm.init = true;
 
-            var w0 = ImageUploadEditor;
+            var w0 = LookupEditor;
 
             initFormType(TblproductosDidiForm, [
-                'FileName', w0
+                'IntArticuloid', w0
             ]);
         }
     }

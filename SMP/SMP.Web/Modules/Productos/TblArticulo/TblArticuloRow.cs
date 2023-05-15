@@ -1,10 +1,11 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
 
 namespace SMP.Productos;
 
+[LookupScript(Expiration = -1)]
 [ConnectionKey("Default"), Module("Productos"), TableName("tblArticulo")]
 [DisplayName("Tbl Articulo"), InstanceName("Tbl Articulo")]
 [ReadPermission("Administration:General")]

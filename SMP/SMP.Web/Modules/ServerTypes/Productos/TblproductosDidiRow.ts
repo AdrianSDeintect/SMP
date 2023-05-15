@@ -2,21 +2,12 @@
 
 export interface TblproductosDidiRow {
     IntArticuloid?: number;
-    StrDivision?: string;
-    StrCategoria?: string;
-    StrSubCat?: string;
-    StrGrupo?: string;
-    StrUpc?: string;
-    StrMarca?: string;
-    StrNombre?: string;
-    StrFormato?: string;
-    Strimagen?: string;
     NombreArticulo?: string;
 }
 
 export abstract class TblproductosDidiRow {
     static readonly idProperty = 'IntArticuloid';
-    static readonly nameProperty = 'StrDivision';
+    static readonly nameProperty = 'IntArticuloid';
     static readonly localTextPrefix = 'Productos.TblproductosDidi';
     static readonly lookupKey = 'Productos.TblproductosDidi';
 

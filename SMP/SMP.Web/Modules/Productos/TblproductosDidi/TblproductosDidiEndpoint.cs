@@ -186,7 +186,7 @@ public class TblproductosDidiEndpoint : ServiceEndpoint
 
                     handler.Create(uow, new SaveWithLocalizationRequest<MyRow>
                     {
-                        Entity = product
+                        Entity = product,
                     });
 
                     response.Inserted = response.Inserted + 1;
