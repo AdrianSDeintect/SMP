@@ -1,17 +1,18 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
 
 namespace SMP.Sucursales;
 
+[LookupScript(Expiration = -1)]
 [ConnectionKey("Default"), Module("Sucursales"), TableName("tblSucursal")]
 [DisplayName("Tbl Sucursal"), InstanceName("Tbl Sucursal")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 public sealed class TblSucursalRow : Row<TblSucursalRow.RowFields>, IIdRow, INameRow
 {
-    [DisplayName("Local Sap"), Size(50), NotNull, QuickSearch, NameProperty]
+    [DisplayName("Local Sap"), Size(50), NotNull, QuickSearch, NameProperty, IdProperty]
     public string LocalSap
     {
         get => fields.LocalSap[this];
@@ -25,7 +26,7 @@ public sealed class TblSucursalRow : Row<TblSucursalRow.RowFields>, IIdRow, INam
         set => fields.NombreSuc[this] = value;
     }
 
-    [DisplayName("Id Sucursal"), Column("IDSucursal"), PrimaryKey, NotNull, IdProperty]
+    [DisplayName("Id Sucursal"), Column("IDSucursal"), PrimaryKey, NotNull]
     public int? IdSucursal
     {
         get => fields.IdSucursal[this];

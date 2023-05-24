@@ -1,16 +1,8 @@
-﻿import { StringEditor, PrefixedContext } from "@serenity-is/corelib";
+﻿import { LookupEditor, PrefixedContext } from "@serenity-is/corelib";
 import { initFormType } from "@serenity-is/corelib/q";
 
 export interface TblproductosRappiForm {
-    StrDivision: StringEditor;
-    StrCategoria: StringEditor;
-    StrSubCat: StringEditor;
-    StrGrupo: StringEditor;
-    StrUpc: StringEditor;
-    StrMarca: StringEditor;
-    StrNombre: StringEditor;
-    StrFormato: StringEditor;
-    Strimagen: StringEditor;
+    IntArticuloid: LookupEditor;
 }
 
 export class TblproductosRappiForm extends PrefixedContext {
@@ -23,18 +15,10 @@ export class TblproductosRappiForm extends PrefixedContext {
         if (!TblproductosRappiForm.init)  {
             TblproductosRappiForm.init = true;
 
-            var w0 = StringEditor;
+            var w0 = LookupEditor;
 
             initFormType(TblproductosRappiForm, [
-                'StrDivision', w0,
-                'StrCategoria', w0,
-                'StrSubCat', w0,
-                'StrGrupo', w0,
-                'StrUpc', w0,
-                'StrMarca', w0,
-                'StrNombre', w0,
-                'StrFormato', w0,
-                'Strimagen', w0
+                'IntArticuloid', w0
             ]);
         }
     }

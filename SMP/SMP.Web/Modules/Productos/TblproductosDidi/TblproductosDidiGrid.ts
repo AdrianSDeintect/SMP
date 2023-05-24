@@ -2,7 +2,7 @@ import { Decorators, EntityGrid, ToolButton } from '@serenity-is/corelib';
 import { TblproductosDidiColumns, TblproductosDidiRow, TblproductosDidiService } from '../../ServerTypes/Productos';
 import { TblproductosDidiDialog } from './TblproductosDidiDialog';
 /*import { TblproductosDidiDialogImportExcel } from './TblproductosDidiDialogImportExcel';*/
-import { TblproductosDidiDialogImportExcel } from '../ImportExcel/TblproductosDidiImportExcelDialog'
+import { ImportExcelDialog } from 'Modules/ImportExcel/ImportExcelDialog'
 import { ExcelExportHelper, PdfExportHelper, ReportHelper } from "@serenity-is/extensions";
 
 @Decorators.registerClass('SMP.Productos.TblproductosDidiGrid')
@@ -37,12 +37,15 @@ export class TblproductosDidiGrid extends EntityGrid<TblproductosDidiRow, any> {
             cssClass: 'export-xlsx-button',
             onClick: () => {
                 // open import dialog, let it handle rest
-                var dialog = new TblproductosDidiDialogImportExcel();
+                var dialog = new ImportExcelDialog({
+                });
                 dialog.element.on('dialogclose', () => {
                     this.refresh();
                     dialog = null;
                 });
+                dialog.TipoMP = 'Didi'
                 dialog.dialogOpen();
+                
             }
         });
 

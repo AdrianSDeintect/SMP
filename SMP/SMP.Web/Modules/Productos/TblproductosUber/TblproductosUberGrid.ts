@@ -1,6 +1,7 @@
 import { Decorators, EntityGrid, ToolButton } from '@serenity-is/corelib';
 import { TblproductosUberColumns, TblproductosUberRow, TblproductosUberService } from '../../ServerTypes/Productos';
 import { TblproductosUberDialog } from './TblproductosUberDialog';
+import { ImportExcelDialog } from 'Modules/ImportExcel/ImportExcelDialog'
 import { ExcelExportHelper, PdfExportHelper, ReportHelper } from "@serenity-is/extensions";
 
 
@@ -28,6 +29,23 @@ export class TblproductosUberGrid extends EntityGrid<TblproductosUberRow, any> {
             grid: this,
             onViewSubmit: () => this.onViewSubmit()
         }));
+
+        // add our import button
+        buttons.push({
+            title: 'Import From Excel',
+            cssClass: 'export-xlsx-button',
+            onClick: () => {
+                // open import dialog, let it handle rest
+                var dialog = new ImportExcelDialog({
+                });
+                dialog.element.on('dialogclose', () => {
+                    this.refresh();
+                    dialog = null;
+                });
+                dialog.TipoMP = 'Uber'
+                dialog.dialogOpen();
+            }
+        });
 
         return buttons;
     }

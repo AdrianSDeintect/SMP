@@ -1,6 +1,7 @@
 import { Decorators, EntityGrid, ToolButton } from '@serenity-is/corelib';
 import { TblproductosRappiColumns, TblproductosRappiRow, TblproductosRappiService } from '../../ServerTypes/Productos';
 import { TblproductosRappiDialog } from './TblproductosRappiDialog';
+import { ImportExcelDialog } from 'Modules/ImportExcel/ImportExcelDialog'
 import { ExcelExportHelper, PdfExportHelper, ReportHelper } from "@serenity-is/extensions";
 
 @Decorators.registerClass('SMP.Productos.TblproductosRappiGrid')
@@ -27,6 +28,23 @@ export class TblproductosRappiGrid extends EntityGrid<TblproductosRappiRow, any>
             grid: this,
             onViewSubmit: () => this.onViewSubmit()
         }));
+
+        // add our import button
+        buttons.push({
+            title: 'Import From Excel',
+            cssClass: 'export-xlsx-button',
+            onClick: () => {
+                // open import dialog, let it handle rest
+                var dialog = new ImportExcelDialog({
+                });
+                dialog.element.on('dialogclose', () => {
+                    this.refresh();
+                    dialog = null;
+                });
+                dialog.TipoMP = 'Rappi'
+                dialog.dialogOpen();
+            }
+        });
 
         return buttons;
     }

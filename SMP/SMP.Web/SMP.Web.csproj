@@ -13,6 +13,8 @@
     <EmbeddedResource Remove="Modules\NewFolder\**" />
     <None Remove="Modules\NewFolder\**" />
     <TypeScriptCompile Remove="Modules\NewFolder\**" />
+    <Compile Remove="Modules\ImportExcel\ImportExcelEndpoint.cs" />
+    <Compile Remove="Modules\ImportExcel\TblproductosImportExcelEndpoint.cs" />
     <None Remove="Scripts\site\SiGeC.Web.d.ts.orig" />
     <None Remove="Scripts\site\SiGeC.Web.js" />
     <None Remove="Scripts\site\SiGeC.Web.js.map" />
@@ -701,9 +703,13 @@
     <PackageReference Include="Serenity.Extensions" Version="6.7.1" />
     <PackageReference Include="Serenity.Demo.Northwind" Version="6.7.1" />
     <PackageReference Include="Serenity.Demo.BasicSamples" Version="6.7.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SMPUtilss\SMPUtils.csproj" />
   </ItemGroup>
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild" Condition="!Exists('node_modules\@types\jquery\index.d.ts')">
     <Message Text="Installing NPM packages..." Importance="high" />

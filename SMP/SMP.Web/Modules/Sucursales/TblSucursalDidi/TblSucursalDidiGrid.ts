@@ -1,6 +1,7 @@
 import { Decorators, EntityGrid, ToolButton } from '@serenity-is/corelib';
 import { TblSucursalDidiColumns, TblSucursalDidiRow, TblSucursalDidiService } from '../../ServerTypes/Sucursales';
 import { TblSucursalDidiDialog } from './TblSucursalDidiDialog';
+import { ImportExcelSucursalesDialog } from 'Modules/ImportExcel/ImportExcelSucursalesDialog'
 import { ExcelExportHelper, PdfExportHelper, ReportHelper } from "@serenity-is/extensions";
 
 @Decorators.registerClass('SMP.Sucursales.TblSucursalDidiGrid')
@@ -28,6 +29,23 @@ export class TblSucursalDidiGrid extends EntityGrid<TblSucursalDidiRow, any> {
             grid: this,
             onViewSubmit: () => this.onViewSubmit()
         }));
+
+        // add our import button
+        buttons.push({
+            title: 'Import From Excel',
+            cssClass: 'export-xlsx-button',
+            onClick: () => {
+                // open import dialog, let it handle rest
+                var dialog = new ImportExcelSucursalesDialog({
+                });
+                dialog.element.on('dialogclose', () => {
+                    this.refresh();
+                    dialog = null;
+                });
+                dialog.TipoMP = 'Didi'
+                dialog.dialogOpen();
+            }
+        });
 
         return buttons;
     }

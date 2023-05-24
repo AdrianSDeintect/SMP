@@ -22,13 +22,5 @@ public class TblproductosDidiForm
     //public String fkDesArticulo { get; set; }
 
     [Tab("General")]
-    //public string NombrePerfil { get; set; }
-    //public int Proveedor { get; set; }
-    //public int TipoPlan { get; set; }
     public int IntArticuloid { get; set; }
-
-    //[Tab("Categorias")]
-    ////[Category("Categoria  ")]
-    //[PermissionCheckEditorAttribute]
-    //public List<PerfilSmartCategoriaRow> fkIdArticulo { get; set; }   
 }

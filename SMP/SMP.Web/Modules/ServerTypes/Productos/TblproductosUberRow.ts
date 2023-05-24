@@ -2,21 +2,12 @@
 
 export interface TblproductosUberRow {
     IntArticuloid?: number;
-    StrDivision?: string;
-    StrCategoria?: string;
-    StrSubCat?: string;
-    StrGrupo?: string;
-    StrUpc?: string;
-    StrMarca?: string;
-    StrNombre?: string;
-    StrFormato?: string;
-    Strimagen?: string;
     NombreArticulo?: string;
 }
 
 export abstract class TblproductosUberRow {
     static readonly idProperty = 'IntArticuloid';
-    static readonly nameProperty = 'StrDivision';
+    static readonly nameProperty = 'IntArticuloid';
     static readonly localTextPrefix = 'Productos.TblproductosUber';
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';

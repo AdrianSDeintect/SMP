@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 
 namespace SMP.Sucursales.Forms;
 
@@ -6,4 +6,6 @@ namespace SMP.Sucursales.Forms;
 [BasedOnRow(typeof(TblSucursalDidiRow), CheckNames = true)]
 public class TblSucursalDidiForm
 {
+    [Tab("General")]
+    public string LocalSap { get; set; }
 }
