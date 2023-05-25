@@ -26,7 +26,6 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "target": "ES6",
-    "outFile": "Scripts/site/SMP.Web.js",
     "typeRoots": [
       "./node_modules/@types"
     ],
@@ -38,8 +37,7 @@
     ]
   },
   "include": [
-    "./Modules/**/*",
-    "./Scripts/typings/"
+    "./Modules/**/*"
   ],
   "typeAcquisition": {
     "enable": false
