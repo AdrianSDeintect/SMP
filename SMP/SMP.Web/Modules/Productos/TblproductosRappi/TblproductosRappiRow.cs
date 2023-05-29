@@ -12,8 +12,7 @@ namespace SMP.Productos;
 [ModifyPermission("Administration:General")]
 public sealed class TblproductosRappiRow : Row<TblproductosRappiRow.RowFields>, IIdRow, INameRow
 {
-    [DisplayName("Articulo"), Column("intArticuloid"), PrimaryKey, NotNull, IdProperty, ForeignKey("[dbo].[tblArticulo]", "SKU"), LeftJoin("jArticulo"), TextualField("NOMBREARTICULO"), NameProperty]
-    [LookupEditor(typeof(TblArticuloRow))]
+    [DisplayName("Articulo"), Column("intArticuloid"), PrimaryKey, IdProperty, QuickSearch, ForeignKey("[dbo].[tblArticulo]", "SKU"), LeftJoin("jArticulo"), TextualField("NOMBREARTICULO"), NameProperty]
     public int? IntArticuloid
     {
         get => fields.IntArticuloid[this];
@@ -83,10 +82,19 @@ public sealed class TblproductosRappiRow : Row<TblproductosRappiRow.RowFields>, 
     //    set => fields.Strimagen[this] = value;
     //}
     [DisplayName("Nombre del Producto"), Expression("jArticulo.[NOMBREARTICULO]"), QuickSearch]
+    //[LookupEditor(typeof(TblArticuloRow))]
     public string NombreArticulo
     {
         get => fields.NombreArticulo[this];
         set => fields.NombreArticulo[this] = value;
+    }
+
+    [DisplayName("Nombre Articulo Id"), Column("NombreArticuloId"), Expression("CAST(jArticulo.[SKU] AS varchar(15)) + ' - ' + jArticulo.[NOMBREARTICULO]"), QuickSearch]
+    [LookupEditor(typeof(TblArticuloRow))]
+    public string NombreArticuloId
+    {
+        get => fields.NombreArticuloId[this];
+        set => fields.NombreArticuloId[this] = value;
     }
     public bool TrackWithChecks { get; internal set; }
     public class RowFields : RowFieldsBase
@@ -102,6 +110,7 @@ public sealed class TblproductosRappiRow : Row<TblproductosRappiRow.RowFields>, 
         //public StringField StrFormato;
         //public StringField Strimagen;
         public StringField NombreArticulo;
+        public StringField NombreArticuloId;
 
     }
 }

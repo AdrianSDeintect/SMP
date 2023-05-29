@@ -1,4 +1,5 @@
 using Serenity.ComponentModel;
+using Serenity.Demo.BasicSamples;
 
 namespace SMP.Productos.Forms;
 
@@ -6,6 +7,7 @@ namespace SMP.Productos.Forms;
 [BasedOnRow(typeof(TblproductosRappiRow), CheckNames = false)]
 public class TblproductosRappiForm
 {
+    [ChangingLookupTextEditor]
     //public string StrDivision { get; set; }
     //public string StrCategoria { get; set; }
     //public string StrSubCat { get; set; }
@@ -19,5 +21,5 @@ public class TblproductosRappiForm
     //public string NombrePerfil { get; set; }
     //public int Proveedor { get; set; }
     //public int TipoPlan { get; set; }
-    public int IntArticuloid { get; set; }
+    public int NombreArticuloId { get; set; }
 }

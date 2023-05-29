@@ -11,7 +11,7 @@ namespace SMP.Productos;
 [ModifyPermission("Administration:General")]
 public sealed class TblproductosUberRow : Row<TblproductosUberRow.RowFields>, IIdRow, INameRow
 {
-    [DisplayName("Articulo"), Column("intArticuloid"), PrimaryKey, NotNull, IdProperty, ForeignKey("[dbo].[tblArticulo]", "SKU"), LeftJoin("jArticulo"), TextualField("NOMBREARTICULO"), NameProperty]
+    [DisplayName("Articulo"), Column("intArticuloid"), PrimaryKey, IdProperty, QuickSearch, ForeignKey("[dbo].[tblArticulo]", "SKU"), LeftJoin("jArticulo"), TextualField("NOMBREARTICULO"), NameProperty]
     [LookupEditor(typeof(TblArticuloRow))]
     public int? IntArticuloid
     {

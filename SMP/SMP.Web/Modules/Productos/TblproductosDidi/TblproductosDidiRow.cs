@@ -12,9 +12,7 @@ namespace SMP.Productos;
 [ModifyPermission("Administration:General")]
 public sealed class TblproductosDidiRow : Row<TblproductosDidiRow.RowFields>, IIdRow, INameRow
 {
-    //[DisplayName("Proveedor"), NotNull, ForeignKey("[dbo].[tblProveedor]", "idProveedor"), LeftJoin("jTipoProveedor"), TextualField("ProveedorNombre")]
-    //[LookupEditor(typeof(TblArticuloRow))]
-    [DisplayName("Articulo"), Column("intArticuloid"), PrimaryKey, NotNull, IdProperty, ForeignKey("[dbo].[tblArticulo]", "SKU"), LeftJoin("jArticulo"), TextualField("NOMBREARTICULO"), NameProperty]
+    [DisplayName("Articulo"), Column("intArticuloid"), PrimaryKey, IdProperty, QuickSearch, ForeignKey("[dbo].[tblArticulo]", "SKU"), LeftJoin("jArticulo"), TextualField("NOMBREARTICULO"), NameProperty]
     [LookupEditor(typeof(TblArticuloRow))]
     public int? IntArticuloid
     {

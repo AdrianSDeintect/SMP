@@ -3,6 +3,7 @@
 export interface TblproductosRappiRow {
     IntArticuloid?: number;
     NombreArticulo?: string;
+    NombreArticuloId?: string;
 }
 
 export abstract class TblproductosRappiRow {
